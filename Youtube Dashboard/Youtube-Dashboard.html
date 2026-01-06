@@ -52,14 +52,20 @@
             border-color: rgb(192, 192, 192);
             box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
             cursor: text;
-            width: 60%;
+            width: 0;
+            flex: 1;
             height: 40%;
             padding-left: 10px;
-            color: white;
+            color: black;
             font-size: 10px;
             vertical-align: middle;
             border-radius: 2px;
 
+        }
+
+        .input-box:focus{
+            border-color: gray;
+            outline: none; 
         }
 
         .input-google{
@@ -102,99 +108,228 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: white;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(228, 228, 228);
+        z-index: 1;
     }
 
     .left-section{
         display: flex;
         align-items: center;
+        width: 250px;
     }
 
     .middle-section{
         flex: 1;
-        margin-left: 60px;
-        margin-right: 35px;
+        margin-left: 0px;
         max-width: 400px;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     .right-section{
-        width: 200px;
+        width: 300px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-shrink: 0;
     }
 
     .search-btn:hover{
         opacity: 0.7;
     }
 
+    .search-btn:hover .tooltip{
+        opacity: 1;
+    }
+
+    .tooltip{
+        position: absolute;
+        background-color: gray;
+        color: white;
+        padding: 3px;
+        font-size: 8px;
+        margin-left: -8px;
+        margin-top: 6px;
+        border-radius: 1px;
+        opacity: 0;
+    }
+
+
+
+    .home-block:hover{
+        background-color: lightgrey;
+    }
+
+    .mic .tooltip{
+        position: absolute;
+        background-color: gray;
+        color: white;
+        padding: 3px;
+        font-size: 8px;
+        margin-left: -37px;
+        margin-top: 6px;
+        border-radius: 1px;
+        opacity: 0;
+    }
+    .mic:hover .tooltip{
+        opacity: 1;
+    }
+    .mic:hover{
+        opacity: 0.7;
+    }
+
+    .crt:hover .tooltip{
+        opacity: 1;
+    }
+    .crt:hover{
+        opacity: 0.7;
+    }
+
+    .crt .tooltip{
+        margin-left: 24px;
+        font-size: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .img .tooltip{
+        margin-left: 0px;
+        font-size: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .img:hover .tooltip{
+        opacity: 1;
+    }
+    .img:hover{
+        opacity: 0.7;
+    }
+
+    .vid-grid{
+       display: grid;
+        grid-template-columns: 1fr 1fr 1fr; column-gap: 20px; row-gap: 10px;
+    }
+
+    @media (max-width: 750px) {
+        .vid-grid{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        .vid-grid{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+
     </style>
 </head>
-<body style=" margin: 0;">
+<body style=" margin: 0; padding-top: 60px; margin-bottom: 3000px; padding-left: 108px; padding-right: 5px;">
 
     <div class="header" >
         <div class="left-section">
             <img src="images/hamburger.png" style="height: 20px; width: 20px; border-radius: 0; margin-left: 45px;" alt="None">
-            <img src="images/youtube.png" style="height: 75px; width: 75px; border-radius: 0; margin-left: 50px;" alt="None">
+            <img src="images/youtube.png" style="height: 75px; width: 75px; border-radius: 0; margin-left: 90px;" alt="None">
         </div>
         <div class="middle-section">
             <input class="input-box" type="text" placeholder="Search">
-            <button class="search-btn" style="width: 7%; height: 47%; background-color: white; border: solid; border-width: 1px; border-color: rgb(192, 192, 192);  border-radius: 2px; margin-left: -2px;">
+            <button class="search-btn" style="width: 28px; height: 26px; position: relative; background-color: white; border: solid; border-width: 1px; border-color: rgb(192, 192, 192);  border-radius: 2px; margin-left: -2px;">
                 <img src="images/magnifying-glass.png" style="height: 15px; width: 15px; margin-top: 2px;" alt="None">
+                <div class="tooltip" >Search</div>
             </button>
-            <button style=" border: none; background-color: white; margin-left: 12px;">
+            <button class="mic" style="border: none; background-color: white; margin-left: 12px;">
                 <img src="images/microphone.png" style="height: 14px; width: 14px; border: none; background-color: white; margin-top: 2px;" alt="None">
+                <div class="tooltip" >Search with Your Voice</div>
             </button>
         </div>
         <div class="right-section">
-            <img src="images/video.png" style="height: 19px; width: 19px; margin-left: -70px;" alt="None">
-            <img src="images/grid.png" style="height: 19px; width: 19px; border-radius: 0;" alt="None">
-            <img src="images/notification.png" style="height: 19px; width: 19px; margin-right: 27px;" alt="None">
+            <div class="crt">
+                <img src="images/video.png" style="height: 19px; width: 19px; margin-left: 30px;" alt="None">
+                <div class="tooltip" >Create</div>
+            </div>
+            <div class="img">
+                <img src="images/grid.png" style="height: 19px; width: 19px; border-radius: 0;" alt="None">
+                <div class="tooltip" >Grid</div>
+            </div>
+            
+            <div style="position: relative;">
+                <img src="images/notification.png" style="height: 19px; width: 19px; margin-right: 27px;" alt="None">
+                <div style="position: absolute; background-color: red; color: white; top: -2px; right:23px; font-size: 11px; border-radius: 40px; padding-left: 4px; padding-right: 4px;">3</div>
+            </div>
             <img src="images/youtube 7.jpg" style="height: 31px; width: 31px; border-radius: 20px; margin-right: 40px;" alt="None">
         </div>
-
     </div>
-
-    <div style="display: grid; grid-template-columns: 0.5fr 2fr 2fr 2fr; column-gap: 20px; row-gap: 10px;">
-        <div style=" vertical-align: top; text-align: center; margin-left: 10px;">
-            <p>Home</p>
-            <p>Shorts</p>
-            <p>Subscriptions</p>
-            <p>You</p>
-        </div> 
-        <div class="cardx" style="margin-top: 20px;">
+        <div style=" text-align: center; left: 0; bottom: 0; top: 55px; position: fixed; width: 103px; background-color: white; z-index: 2;">
+            <div style="position: relative;">
+                <div class="home-block" style=" height: 76px; border: none; width: 100%;  flex-direction: column;  display: flex;  align-items: center; justify-content: center;">
+                    <img src="images/home.png" alt="None" style=" width: 23px; height: 23px; border-radius: 0;">  
+                    <p style="font-size: 10px; margin-top: 1px;">Home</p>
+                </div>
+                <div class="home-block" style=" height: 76px; border: none; width: 100%; align-items: center; justify-content: center; display: flex; flex-direction: column;">
+                    <img src="images/play.png" alt="None" style=" width: 23px; height: 23px; border-radius: 0;">  
+                    <p style="font-size: 10px; margin-top: 1px;">Shorts</p>
+                </div>
+                <div class="home-block" style=" height: 76px; border: none; width: 100%; align-items: center; justify-content: center; display: flex; flex-direction: column">
+                    <img src="images/subscribe.png" alt="None" style=" width: 23px; height: 23px; border-radius: 0;">  
+                    <p style="font-size: 10px; margin-top: 1px;">Subscriptions</p>
+                </div>
+                <div class="home-block" style=" height: 76px; border: none; width: 100%; align-items: center; justify-content: center; display: flex; flex-direction: column">
+                    <img src="images/icons8-avatar-50.png" alt="None" style=" width: 23px; height: 23px; border-radius: 0;">  
+                    <p style="font-size: 10px; margin-top: 1px;">You</p>
+                </div>
+                <div class="home-block" style=" height: 76px; border: none; width: 100%; align-items: center; justify-content: center; display: flex; flex-direction: column">
+                    <img src="images/icons8-youtube-music-50.png" alt="None" style=" width: 23px; height: 23px; border-radius: 0;">  
+                    <p style="font-size: 10px; margin-top: 1px;">Youtube Music</p>
+                </div>
+            </div>      
+            </div>
+                               
+    <div class="vid-grid">
+        <div class="cardx" style="margin-top: 20px; position: relative;">
+            <div style="position: absolute; color: white; background-color: black; opacity: 0.8; right: 8px; bottom: 78px; font-size: 12px; border-radius: 2px; padding: 2px;">14:20</div>
             <img src="images\youtube 1.avif" alt="None">
             <p style="margin-top: 2px; font-size: 15px; width: 250px; margin-bottom: 0;">M0nesy Plays with top 1 faceit</p>
             <p style="font-size: 12px; margin-bottom: 0; margin-top: 10px;">Marques Brownlee</p>
             <p style="font-size: 12px; margin-top: 2px;">3.4M Views &#183; 6 months ago </p>
+            
         </div> 
-        <div class="cardx" style="margin-top: 20px;">
+        <div class="cardx" style="margin-top: 20px; position: relative;">
+            <div style="position: absolute; color: white; background-color: black; opacity: 0.8; right: 8px; bottom: 78px; font-size: 12px; border-radius: 2px; padding: 2px;">05:28</div>
             <img src="images\youtube 2.avif" alt="None">
             <p style="margin-top: 2px; font-size: 15px; width: 250px; margin-bottom: 0;">M0nesy Plays with top 1 faceit</p>
             <p style="font-size: 12px; margin-bottom: 0; margin-top: 10px;">Marques Brownlee</p>
             <p style="font-size: 12px; margin-top: 2px;">3.4M Views &#183; 6 months ago </p>
         </div> 
-        <div class="cardx" style="margin-top: 20px;">
+        <div class="cardx" style="margin-top: 20px; position: relative;">
+            <div style="position: absolute; color: white; background-color: black; opacity: 0.8; right: 8px; bottom: 78px; font-size: 12px; border-radius: 2px; padding: 2px;">20:21</div>
             <img src="images\youtube 3.avif" alt="None">
             <p style="margin-top: 2px; font-size: 15px; width: 250px; margin-bottom: 0;">M0nesy Plays with top 1 faceit</p>
             <p style="font-size: 12px; margin-bottom: 0; margin-top: 10px;">Marques Brownlee</p>
             <p style="font-size: 12px; margin-top: 2px;">3.4M Views &#183; 6 months ago </p>
         </div> 
-        <div></div>
-        <div class="cardx" style="margin-top: 20px;">
+        <div class="cardx" style="margin-top: 20px; position: relative;">
+            <div style="position: absolute; color: white; background-color: black; opacity: 0.8; right: 8px; bottom: 78px; font-size: 12px; border-radius: 2px; padding: 2px;">30:00</div>
             <img src="images\youtube 4.avif" alt="None">
             <p style="margin-top: 2px; font-size: 15px; width: 250px; margin-bottom: 0;">M0nesy Plays with top 1 faceit</p>
             <p style="font-size: 12px; margin-bottom: 0; margin-top: 10px;">Marques Brownlee</p>
             <p style="font-size: 12px; margin-top: 2px;">3.4M Views &#183; 6 months ago </p>
         </div> 
-        <div class="cardx" style="margin-top: 20px;">
+        <div class="cardx" style="margin-top: 20px; position: relative;">
+            <div style="position: absolute; color: white; background-color: black; opacity: 0.8; right: 8px; bottom: 78px; font-size: 12px; border-radius: 2px; padding: 2px;">30:18</div>
             <img src="images\youtube 5.avif" alt="None">
             <p style="margin-top: 2px; font-size: 15px; width: 250px; margin-bottom: 0;">M0nesy Plays with top 1 faceit</p>
             <p style="font-size: 12px; margin-bottom: 0; margin-top: 10px;">Marques Brownlee</p>
             <p style="font-size: 12px; margin-top: 2px;">3.4M Views &#183; 6 months ago </p>
         </div> 
-        <div class="cardx" style="margin-top: 20px;">
+        <div class="cardx" style="margin-top: 20px; position: relative;">
+            <div style="position: absolute; color: white; background-color: black; opacity: 0.8; right: 8px; bottom: 78px; font-size: 12px; border-radius: 2px; padding: 2px;">12:19</div>
             <img src="images\youtube 6.avif" alt="None">
             <p style="margin-top: 2px; font-size: 15px; width: 250px; margin-bottom: 0;">M0nesy Plays with top 1 faceit</p>
             <p style="font-size: 12px; margin-bottom: 0; margin-top: 10px;">Marques Brownlee</p>
