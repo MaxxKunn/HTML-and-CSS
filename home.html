@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    .navbar{
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      top: 0;
+      right: 0;
+      left: 0;
+      position: fixed;
+      height: 50px;
+    }
+
+    .left-sect{
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right-sect{
+      background-color: lightpink;
+      display: flex;
+      flex-direction: row ;
+      justify-content: space-between;
+    }
+
+    .navbar-items{
+      background-color: lightgreen;
+      width: 70px;
+      padding-left: 30px;
+      color: black;
+      text-decoration: none;
+      padding-top: 10px;
+    }
+
+    .navbar-items:hover{
+      background-color: lightgrey;
+    }
+
+    .navbar-btn{
+      background-color: lightgreen;
+      width: 100px;
+      padding-left: 47px;
+
+    }
+
+  </style>
+</head>
+<body style="margin-bottom: 3000px;">
+    <nav class="navbar">
+      <div class="left-sect">
+        <img src="icons8-crypto-80.png" alt="None" style="height: 30px;">
+        <p style="margin-left: 3px;">CryptoAcademy</p>
+      </div>
+      <div style="background-color: lightyellow;">
+        test
+      </div>
+      <div class="right-sect">
+        <a class="navbar-items" href="/Youtube Dashboard/Youtube-Dashboard.html" target="_blank">Youtube</a>
+        <a class="navbar-items" href="/CSS grid/grid.html" target="_blank">Grid</a>
+        <a class="navbar-items" href="/CSS grid/css-position.html" target="_blank">Positions</a>
+        <button class="navbar-btn">Sign Up</button>
+      </div>
+
+    </nav>
+</body>
+</html>
